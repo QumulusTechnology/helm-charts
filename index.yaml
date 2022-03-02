@@ -3,6 +3,16 @@ entries:
   konga:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2022-03-02T14:38:20.153014905Z"
+    description: A Helm chart for Kubernetes
+    digest: b43a7961bd6adb609b8ccc38dee736e552b548cab3a1115d092a1503ac238e31
+    icon: https://raw.githubusercontent.com/pantsel/konga/HEAD/screenshots/konga-logo.png
+    name: konga
+    urls:
+    - https://github.com/QumulusTechnology/helm-charts/releases/download/konga-1.0.3/konga-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2022-02-28T20:27:27.519720479Z"
     description: A Helm chart for Kubernetes
     digest: e42d037bcc84afecaebefb700579c82c7ea1b132c9b6cea31ab7a12a79f840a3
@@ -20,4 +30,4 @@ entries:
     urls:
     - https://github.com/QumulusTechnology/helm-charts/releases/download/konga-1.0.1/konga-1.0.1.tgz
     version: 1.0.1
-generated: "2022-02-28T20:27:27.519730979Z"
+generated: "2022-03-02T14:38:20.153030905Z"
