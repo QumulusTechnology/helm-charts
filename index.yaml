@@ -3,6 +3,37 @@ entries:
   awx:
   - apiVersion: v2
     appVersion: 2.2.4
+    created: "2022-06-26T16:07:08.799310107Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.3
+    - condition: rabbitmq.enabled
+      name: rabbitmq
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.1.5
+    - condition: memcached.enabled
+      name: memcached
+      repository: https://charts.bitnami.com/bitnami
+      version: 6.1.1
+    description: Installs Ansible AWX (Ansible Web UI), with dependencies (rabbitmq,
+      postgresql, memcahed)
+    digest: 34270098fdc907e6953306d8eaf02037bd11b1ac29ccef719595f92520dd51a6
+    keywords:
+    - ansible
+    - awx
+    maintainers:
+    - email: admin@qumulus.com
+      name: Qumulus Technology LTD
+    name: awx
+    sources:
+    - https://github.com/ansible/awx
+    urls:
+    - https://github.com/QumulusTechnology/helm-charts/releases/download/awx-1.5.4/awx-1.5.4.tgz
+    version: 1.5.4
+  - apiVersion: v2
+    appVersion: 2.2.4
     created: "2022-06-23T03:10:08.994138868Z"
     dependencies:
     - condition: postgresql.enabled
@@ -186,4 +217,4 @@ entries:
     urls:
     - https://github.com/QumulusTechnology/helm-charts/releases/download/konga-1.0.1/konga-1.0.1.tgz
     version: 1.0.1
-generated: "2022-06-23T03:10:08.994191468Z"
+generated: "2022-06-26T16:07:08.799536622Z"
