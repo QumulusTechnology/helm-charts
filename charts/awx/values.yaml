@@ -20,6 +20,7 @@ awx_task:
 
 # AWX config
 awx_secret_key: awxsecret
+awx_default_admin_secret: ''
 awx_url_base: 'http://localhost'
 default_admin_user: admin
 default_admin_password: password

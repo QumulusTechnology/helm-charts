@@ -98,9 +98,15 @@ spec:
             - name: RABBITMQ_PORT
               value: "4369"
             - name: AWX_ADMIN_USER
-              value: {{ .Values.default_admin_user }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.awx_default_admin_secret }}
+                  key: username
             - name: AWX_ADMIN_PASSWORD
-              value: {{ .Values.default_admin_password }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.awx_default_admin_secret }}
+                  key: password
 
           resources:
 {{ toYaml .Values.resources | indent 12 }}
