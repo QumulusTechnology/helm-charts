@@ -46,11 +46,22 @@ spec:
               subPath: nginx.conf
           env:
             - name: DATABASE_USER
+              {{- if .Values.postgresql.enabled }}
               value: {{ .Values.postgresql.auth.username }}
+              {{- else }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "awx.postgresql.secretName" . }}
+                  key: username
+              {{- end }}
             - name: DATABASE_NAME
+              {{- if .Values.postgresql.enabled }}
               value: {{ .Values.postgresql.auth.database }}
+              {{- else }}
+              value: {{ include "awx.fullname" . }}
+              {{- end }}
             - name: DATABASE_HOST
-              value: {{ include "awx.fullname" . }}-postgresql
+              value: {{ include "awx.postgresql.host" . }}
             - name: DATABASE_PORT
               value: "5432"
             - name: DATABASE_PASSWORD
@@ -77,11 +88,22 @@ spec:
               name: {{ include "awx.fullname" . }}-application-config
           env:
             - name: DATABASE_USER
+              {{- if .Values.postgresql.enabled }}
               value: {{ .Values.postgresql.auth.username }}
+              {{- else }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "awx.postgresql.secretName" . }}
+                  key: username
+              {{- end }}
             - name: DATABASE_NAME
+              {{- if .Values.postgresql.enabled }}
               value: {{ .Values.postgresql.auth.database }}
+              {{- else }}
+              value: {{ include "awx.fullname" . }}
+              {{- end }}
             - name: DATABASE_HOST
-              value: {{ include "awx.fullname" . }}-postgresql
+              value: {{ include "awx.postgresql.host" . }}
             - name: DATABASE_PORT
               value: "5432"
             - name: DATABASE_PASSWORD
@@ -98,15 +120,23 @@ spec:
             - name: RABBITMQ_PORT
               value: "4369"
             - name: AWX_ADMIN_USER
+              {{- if .Values.awx_default_admin_secret }}
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.awx_default_admin_secret }}
                   key: username
+              {{- else }}
+              value: "admin"
+              {{- end }}
             - name: AWX_ADMIN_PASSWORD
+              {{- if .Values.awx_default_admin_secret }}
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.awx_default_admin_secret }}
                   key: password
+              {{- else }}
+              value: "admin"
+              {{- end }}
 
           resources:
 {{ toYaml .Values.resources | indent 12 }}

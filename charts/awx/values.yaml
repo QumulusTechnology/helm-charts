@@ -20,10 +20,15 @@ awx_task:
 
 # AWX config
 awx_secret_key: awxsecret
-awx_default_admin_secret: ''
+
+## Create AWX default admin login secret separately, Default is admin/admin
+#awx_default_admin_secret: ''
+
 awx_url_base: 'http://localhost'
 default_admin_user: admin
 default_admin_password: password
+
+aws_db_host: 'awx-db.demo.svc.cluster.local'
 
 server_email: 'root@localhost'
 default_from_email: 'webmaster@localhost'
@@ -35,7 +40,7 @@ email_host_password: ''
 email_use_tls: 'False'
 
 # DB secrets if extenal DB is used
-awx_db_secret: 'awx-postgres-auth'
+awx_db_secret: 'awx-db-auth'
 
 deployment:
   annotations: {}
@@ -116,10 +121,12 @@ rabbitmq:
         default_vhost = awx
   volumePermissions:
     enabled: true
+  auth:
+    existingPasswordSecret: ''
 
 # Chart values https://github.com/helm/charts/blob/master/stable/postgresql/values.yaml
 postgresql:
-  enabled: true
+  enabled: false
   image:
     registry: docker.io
     repository: bitnami/postgresql

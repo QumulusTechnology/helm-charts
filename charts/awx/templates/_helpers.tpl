@@ -31,6 +31,14 @@ Create chart name and version as used by the chart label.
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
+{{- define "awx.postgresql.host" -}}
+{{- if .Values.postgresql.enabled -}}
+  {{- printf "%s-%s" (include "common.names.fullname" .) "postgresql" -}}
+{{- else -}}
+  {{- printf "%s" (tpl .Values.aws_db_host $) -}}
+{{- end -}}
+{{- end -}}
+
 {{- define "awx.postgresql.secretName" -}}
 {{- if .Values.postgresql.enabled -}}
   {{- if .Values.postgresql.auth.existingSecret -}}
@@ -42,4 +50,3 @@ Create chart name and version as used by the chart label.
       {{- printf "%s" (tpl .Values.awx_db_secret $) -}}
 {{- end -}}
 {{- end -}}
-
