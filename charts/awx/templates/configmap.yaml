@@ -89,9 +89,7 @@ data:
         }
     }
 
-    BROKER_URL = 'amqp://{}:{}@{}:{}/{}'.format(
-        "os.environ.get('RABBITMQ_USERNAME')",
-        "os.environ.get('RABBITMQ_PASSWORD')",
+    BROKER_URL = 'amqp://{os.environ.get('RABBITMQ_USERNAME')}:{os.environ.get('RABBITMQ_PASSWORD')}@{}:{}/{}'.format(
         "{{ include "awx.fullname" . }}-rabbitmq",
         "{{ default "5672" .Values.rabbitmq.service.port }}",
         "{{ default "awx" .Values.rabbitmq.vhost }}")
