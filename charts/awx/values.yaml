@@ -122,7 +122,7 @@ rabbitmq:
   volumePermissions:
     enabled: true
   auth:
-    existingPasswordSecret: ''
+    existingPasswordSecret: 'aws-rabbitmq'
 
 # Chart values https://github.com/helm/charts/blob/master/stable/postgresql/values.yaml
 postgresql:

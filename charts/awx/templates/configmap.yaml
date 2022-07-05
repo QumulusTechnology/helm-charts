@@ -85,13 +85,13 @@ data:
             'USER': os.environ.get('DATABASE_USER'),
             'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
             'HOST': os.environ.get('DATABASE_HOST'),
-            'PORT': "5432",
+            'PORT': os.environ.get('DATABASE_PORT'),
         }
     }
 
     BROKER_URL = 'amqp://{}:{}@{}:{}/{}'.format(
-        "{{ .Values.rabbitmq.rabbitmq.username }}",
-        "{{ .Values.rabbitmq.rabbitmq.password }}",
+        os.environ.get('RABBITMQ_USERNAME'),
+        os.environ.get('RABBITMQ_PASSWORD'),
         "{{ include "awx.fullname" . }}-rabbitmq",
         "{{ default "5672" .Values.rabbitmq.service.port }}",
         "{{ default "awx" .Values.rabbitmq.vhost }}")

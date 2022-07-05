@@ -50,3 +50,15 @@ Create chart name and version as used by the chart label.
       {{- printf "%s" (tpl .Values.awx_db_secret $) -}}
 {{- end -}}
 {{- end -}}
+
+{{- define "awx.rabbitmq.secretName" -}}
+{{- if .Values.rabbitmq.enabled -}}
+  {{- if .Values.rabbitmq.auth.existingPasswordSecret -}}
+      {{- printf "%s" (tpl .Values.rabbitmq.auth.existingPasswordSecret $) -}}
+  {{- else -}}
+      {{- printf "%s-%s" (include "common.names.fullname" .) "rabbitmq" -}}
+  {{- end -}}
+{{- else -}}
+      {{- printf "%s" (tpl .Values.rabbitmqExternalPasswordSecret $) -}}
+{{- end -}}
+{{- end -}}
