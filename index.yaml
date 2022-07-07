@@ -434,4 +434,28 @@ entries:
     urls:
     - https://github.com/QumulusTechnology/helm-charts/releases/download/konga-1.0.1/konga-1.0.1.tgz
     version: 1.0.1
-generated: "2022-07-05T04:33:08.015926197Z"
+  zabbix:
+  - apiVersion: v2
+    appVersion: 6.0.4
+    created: "2022-07-07T02:39:58.183789276Z"
+    description: Zabbix is a mature and effortless enterprise-class open source monitoring
+      solution for network monitoring and application monitoring of millions of metrics.
+    digest: c1f70f6a360f0d740b4f1c72de281eed8700e7c981d9248fa22923211cd4329b
+    home: https://www.zabbix.com/
+    icon: https://assets.zabbix.com/img/logo/zabbix_logo_500x131.png
+    keywords:
+    - zabbix
+    - monitoring
+    - metrics
+    maintainers:
+    - email: admin@qumulus.com
+      name: Qumulus Technology LTD
+      url: https://github.com/orgs/QumulusTechnology
+    - email: mhrznamn068@gmai.com
+      name: Aman Maharjan
+      url: https://github.com/mhrznamn068
+    name: zabbix
+    urls:
+    - https://github.com/QumulusTechnology/helm-charts/releases/download/zabbix-1.0.0/zabbix-1.0.0.tgz
+    version: 1.0.0
+generated: "2022-07-07T02:39:58.183946977Z"
