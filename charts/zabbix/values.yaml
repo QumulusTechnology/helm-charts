@@ -18,6 +18,7 @@ db_access:
   # -- * dbname
   # -- * user
   # -- * password
+  kubedb_secret_name: ''
   secret_name: zabbixdb-pguser-zabbix
   # -- automatically create secret if not already present (works only in combination with postgresql.enabled=true)
   secret_autocreate: true
