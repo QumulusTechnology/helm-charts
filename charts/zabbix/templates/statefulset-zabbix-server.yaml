@@ -101,7 +101,7 @@ spec:
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  {{- if .Values.kubedb_secret_name }}
+                  {{- if .Values.db_access.kubedb_secret_name }}
                   name: {{ .Values.db_access.kubedb_secret_name }}
                   key: password
                   {{- else }}
