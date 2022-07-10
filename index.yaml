@@ -437,6 +437,29 @@ entries:
   zabbix:
   - apiVersion: v2
     appVersion: 6.0.4
+    created: "2022-07-10T13:44:33.069437716Z"
+    description: Zabbix is a mature and effortless enterprise-class open source monitoring
+      solution for network monitoring and application monitoring of millions of metrics.
+    digest: ada60ef1d9a3fab22db5e96d4a0ba4890cc421a5c353889f2c3c8438554ff3c1
+    home: https://www.zabbix.com/
+    icon: https://assets.zabbix.com/img/logo/zabbix_logo_500x131.png
+    keywords:
+    - zabbix
+    - monitoring
+    - metrics
+    maintainers:
+    - email: admin@qumulus.com
+      name: Qumulus Technology LTD
+      url: https://github.com/orgs/QumulusTechnology
+    - email: mhrznamn068@gmai.com
+      name: Aman Maharjan
+      url: https://github.com/mhrznamn068
+    name: zabbix
+    urls:
+    - https://github.com/QumulusTechnology/helm-charts/releases/download/zabbix-1.0.2/zabbix-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 6.0.4
     created: "2022-07-07T03:15:11.120972231Z"
     description: Zabbix is a mature and effortless enterprise-class open source monitoring
       solution for network monitoring and application monitoring of millions of metrics.
@@ -481,4 +504,4 @@ entries:
     urls:
     - https://github.com/QumulusTechnology/helm-charts/releases/download/zabbix-1.0.0/zabbix-1.0.0.tgz
     version: 1.0.0
-generated: "2022-07-07T03:15:11.121030332Z"
+generated: "2022-07-10T13:44:33.069509717Z"
