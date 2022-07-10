@@ -83,9 +83,15 @@ spec:
           - name: POSTGRES_USER
             valueFrom:
               secretKeyRef:
+                {{- if .Values.db_access.kubedb_secret_name }}
+                name: {{ .Values.db_access.kubedb_secret_name }}
+                key: username
+                optional: true
+                {{- else }}
                 name: {{ .Values.db_access.secret_name }}
                 key: user
                 optional: true
+                {{- end }}
           - name: POSTGRES_PASSWORD
             valueFrom:
               secretKeyRef:
